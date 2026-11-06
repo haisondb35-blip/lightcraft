@@ -473,6 +473,10 @@ impl LightcraftApp {
         panels::topbar::show(self, ui);
         panels::library_problem::banner(self, ui);
         panels::strip::show(self, ui);
+        // The AI Assistant pane, beside the tool strip.
+        if self.assistant_open {
+            crate::assistant::side_pane(self, ui);
+        }
         // filled: the gaps the dock leaves between its panes show chrome, not the dark clear colour
         let chrome = theme::Tokens::get(&ctx).chrome;
         egui::CentralPanel::default().frame(egui::Frame::NONE.fill(chrome)).show(ui, |ui| docking::show(self, ui));

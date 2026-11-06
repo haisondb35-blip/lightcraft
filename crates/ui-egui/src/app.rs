@@ -46,6 +46,8 @@ impl LightcraftApp {
             notice_input: Default::default(),
             quit_confirmed: false,
             control_rx: None,
+            assistant: crate::assistant::Assistant::default(),
+            assistant_open: false,
             pending_screenshots: vec![],
             pending_gestures: vec![],
             layout_epoch: 0,

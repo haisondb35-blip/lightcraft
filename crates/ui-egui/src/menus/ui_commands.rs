@@ -142,6 +142,8 @@ pub const UI_COMMANDS: &[UiCommand] = &[
     ("view.navigator", "Navigator", None, "View"),
     ("panel.edit", "Edit Panel", Some("E"), "Window"),
     ("panel.profiles", "Profile Browser", None, "Window"),
+    // brian-local: Claude or ChatGPT on the open library and photo.
+    ("panel.assistant", "AI Assistant", None, "Window"),
     ("panel.crop", "Crop & Rotate", Some("C"), "Window"),
     ("panel.remove", "Remove", Some("H"), "Window"),
     ("panel.masking", "Masking", Some("M"), "Window"),

@@ -932,6 +932,10 @@ fn ui_commands_7(app: &mut LightcraftApp, ctx: &egui::Context, id: &str, p: &Val
             }
             Ok(json!({"filterBar": app.ui.filter_bar}))
         }
+        "panel.assistant" => {
+            app.assistant_open = !app.assistant_open;
+            Ok(json!({"on": app.assistant_open}))
+        }
         "panel.edit" => {
             panel(app, ctx, RightPanel::Edit, "Edit");
             Ok(Value::Null)

@@ -15,6 +15,7 @@ pub const UPDATE_APP: craft_update::app::App = craft_update::app::App {
     ..craft_update::suite::LIGHTCRAFT
 };
 
+pub mod assistant;
 pub mod brush_live;
 pub mod canvas_keys;
 mod command_error;
@@ -182,6 +183,9 @@ pub struct LightcraftApp {
     /// Quit Anyway was chosen: the window may close with unsaved changes.
     pub quit_confirmed: bool,
     control_rx: Option<Receiver<ControlRequest>>,
+    /// The AI Assistant pane (Window > AI Assistant) and whether it is shown.
+    pub assistant: assistant::Assistant,
+    pub assistant_open: bool,
     pending_screenshots: Vec<PendingShot>,
     /// Synthetic-input control requests waiting for a fresh layout and delivery (plan §4.5).
     pending_gestures: Vec<PendingGesture>,

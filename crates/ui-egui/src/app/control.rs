@@ -6,7 +6,21 @@ impl LightcraftApp {
     /// wants it, and reply directly or admit its screenshot/gesture to a later completed pass.
     /// Requests abandoned by their sender are skipped rather than executed late.
     pub(super) fn drain_control(&mut self, ctx: &egui::Context) {
-        let Some(rx) = self.control_rx.take() else { return };
+        // Open from the start and listed for the other Craft apps (once).
+        self.assistant.share(ctx);
+        if let Some(rx) = self.control_rx.take() {
+            self.drain_from(ctx, &rx);
+            self.control_rx = Some(rx);
+        }
+        // The AI Assistant pane's own channel, driven by the Claude (or Codex) it started.
+        if let Some(rx) = self.assistant.control_rx.take() {
+            self.drain_from(ctx, &rx);
+            self.assistant.control_rx = Some(rx);
+        }
+    }
+
+    /// Handle every request waiting on `rx` (see [`Self::drain_control`]).
+    fn drain_from(&mut self, ctx: &egui::Context, rx: &std::sync::mpsc::Receiver<crate::ControlRequest>) {
         while let Ok(req) = rx.try_recv() {
             // a request its sender gave up on (the window drew nothing for a while) is not run
             // late: it would happen twice once the sender retries (issue #718)
@@ -31,7 +45,6 @@ impl LightcraftApp {
                 }
             }
         }
-        self.control_rx = Some(rx);
     }
 
     /// The navigation/document/modal/panel state that decides what an automation id means.

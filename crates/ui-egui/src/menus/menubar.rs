@@ -430,6 +430,7 @@ pub fn checked(app: &LightcraftApp, id: &str) -> Option<bool> {
         "view.fullScreenPreview" => Some(u.fullscreen),
         "view.lightsOut" => Some(u.lights_out != crate::state::LightsOut::On),
         "view.enterFullScreen" => Some(app.window_is_fullscreen),
+        "panel.assistant" => Some(app.assistant_open),
         "panel.edit" => panel(RightPanel::Edit),
         "panel.profiles" => panel(RightPanel::Profiles),
         "panel.crop" => panel(RightPanel::Crop),

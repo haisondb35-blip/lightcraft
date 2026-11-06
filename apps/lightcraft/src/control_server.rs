@@ -37,6 +37,16 @@ pub fn start(port: u16, ctx: egui::Context) -> Receiver<ControlRequest> {
     rx
 }
 
+/// brian-local: the AI Assistant pane's channel, on a port the system picks on 127.0.0.1
+/// (`lightcraft-cli mcp --connect 127.0.0.1:<port>`). None when it can't listen.
+pub fn start_for_assistant(ctx: egui::Context) -> Option<(u16, Receiver<ControlRequest>)> {
+    let listener = TcpListener::bind(("127.0.0.1", 0)).map_err(|e| log::error!("assistant channel: couldn't listen: {e}")).ok()?;
+    let port = listener.local_addr().ok()?.port();
+    let (tx, rx) = channel::<ControlRequest>();
+    std::thread::spawn(move || accept_loop(listener, tx, ctx));
+    Some((port, rx))
+}
+
 fn accept_loop(listener: TcpListener, tx: Sender<ControlRequest>, ctx: egui::Context) {
     let open = Arc::new(AtomicUsize::new(0));
     for stream in listener.incoming().flatten() {

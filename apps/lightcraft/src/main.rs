@@ -412,6 +412,10 @@ fn main() -> eframe::Result {
                     let rx = control_server::start(port, cc.egui_ctx.clone());
                     app = app.with_control(rx);
                 }
+                // brian-local: the AI Assistant pane opens a channel of its own, and each library's
+                // conversation is remembered in the folder all the Craft apps share.
+                app.assistant.use_memory(lightcraft_ui_egui::assistant::Store::shared());
+                app.assistant.starter = Some(Box::new(|ctx| control_server::start_for_assistant(ctx.clone())));
                 if let Some(mut p) = problem {
                     // imported once the user has chosen where (into the library, or the temporary session)
                     p.pending_import = files;
