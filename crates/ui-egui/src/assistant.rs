@@ -1481,7 +1481,8 @@ pub fn pane(app: &mut crate::LightcraftApp, ui: &mut egui::Ui) {
     ui.add_space(4.0);
     let input_h = 96.0;
     let name = a.provider.name();
-    let intro = "Ask Claude or ChatGPT to adjust the open photo, organise the catalogue, or describe a picture. Changes appear here and can be undone.";
+    let intro =
+        "Ask Claude or ChatGPT to adjust the open photo, organise the catalogue, or describe a picture. Changes appear here and can be undone.";
     let intro = intro.replace("Claude", name);
     let working = "Claude is working…";
     let working = working.replace("Claude", name);
