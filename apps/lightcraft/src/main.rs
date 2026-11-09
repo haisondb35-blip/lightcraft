@@ -415,6 +415,10 @@ fn main() -> eframe::Result {
                 // brian-local: the AI Assistant pane opens a channel of its own, and each library's
                 // conversation is remembered in the folder all the Craft apps share.
                 app.assistant.use_memory(lightcraft_ui_egui::assistant::Store::shared());
+                // Save chat with file: a library's conversation comes back from its folder.
+                if app.assistant.memory.is_some() {
+                    app.assistant.embedded_reader = Some(lightcraft_ui_egui::assistant::embed::read);
+                }
                 app.assistant.starter = Some(Box::new(|ctx| control_server::start_for_assistant(ctx.clone())));
                 if let Some(mut p) = problem {
                     // imported once the user has chosen where (into the library, or the temporary session)

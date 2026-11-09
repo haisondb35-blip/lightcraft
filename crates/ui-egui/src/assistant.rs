@@ -19,6 +19,7 @@ use std::sync::{Arc, Mutex};
 use serde_json::{Value, json};
 
 pub mod api;
+pub mod embed;
 mod memory;
 pub use memory::{Memory, Store};
 
@@ -1398,6 +1399,12 @@ pub fn pane(app: &mut crate::LightcraftApp, ui: &mut egui::Ui) {
     let a = &mut app.assistant;
     if let Some((id, path)) = doc {
         a.follow_document(id, path.as_deref(), None);
+        // Save chat with file: the library's conversation goes into its folder.
+        if let Some(library) = path.as_deref()
+            && a.memory.is_some()
+        {
+            embed::sync(&a.shelf, library);
+        }
     }
     a.poll(ui.ctx());
     a.poll_login();
