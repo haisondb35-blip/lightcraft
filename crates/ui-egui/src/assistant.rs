@@ -750,6 +750,10 @@ pub fn codex_args(l: &Launch) -> Vec<String> {
         .into_iter()
         .map(String::from)
         .collect();
+    // Codex's own settings can turn on plugins (Computer Use, a browser…) that try to drive this
+    // window through the screen instead of the app's tools, and are refused here: leave them out.
+    // Sign-in still comes from Codex's folder.
+    a.insert(3, "--ignore-user-config".into());
     let server = &l.server;
     a.push("-c".into());
     a.push(format!("mcp_servers.lightcraft.command={}", toml_str(&server.command.to_string_lossy())));
