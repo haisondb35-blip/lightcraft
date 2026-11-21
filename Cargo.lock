@@ -1258,7 +1258,7 @@ dependencies = [
 [[package]]
 name = "craft-http-url"
 version = "0.1.0"
-source = "git+https://github.com/storytold/craft-libs?rev=c247a085be0b2db5456f1f9178024d6a12e4cc57#c247a085be0b2db5456f1f9178024d6a12e4cc57"
+source = "git+https://github.com/storytold/craft-libs?rev=512a1b8e8b59a7b325e7f69f6131aa8628470288#512a1b8e8b59a7b325e7f69f6131aa8628470288"
 
 [[package]]
 name = "craft-i18n"
@@ -1330,6 +1330,14 @@ source = "git+https://github.com/storytold/craft-libs?rev=23acc704933a9a5619a5cd
 dependencies = [
  "jixel",
  "jxl-oxide",
+ "thiserror 2.0.21",
+]
+
+[[package]]
+name = "craft-media"
+version = "0.1.0"
+source = "git+https://github.com/storytold/craft-libs?rev=057b0e3e01aed74ecc5d18eb047ddd7328b46b1d#057b0e3e01aed74ecc5d18eb047ddd7328b46b1d"
+dependencies = [
  "thiserror 2.0.21",
 ]
 
@@ -1422,6 +1430,11 @@ dependencies = [
 ]
 
 [[package]]
+name = "craft-sqlite"
+version = "0.1.0"
+source = "git+https://github.com/storytold/craft-libs?rev=057b0e3e01aed74ecc5d18eb047ddd7328b46b1d#057b0e3e01aed74ecc5d18eb047ddd7328b46b1d"
+
+[[package]]
 name = "craft-sync"
 version = "0.1.0"
 dependencies = [
@@ -1500,7 +1513,7 @@ name = "craft-video"
 version = "0.1.0"
 source = "git+https://github.com/storytold/craft-libs?rev=23acc704933a9a5619a5cd1cddc9bb1fb5a9b2d3#23acc704933a9a5619a5cd1cddc9bb1fb5a9b2d3"
 dependencies = [
- "craft-media",
+ "craft-media 0.1.0 (git+https://github.com/storytold/craft-libs?rev=23acc704933a9a5619a5cd1cddc9bb1fb5a9b2d3)",
  "rav1e",
  "rayon",
  "thiserror 2.0.21",
@@ -1530,7 +1543,7 @@ dependencies = [
 [[package]]
 name = "craft-zip"
 version = "0.1.0"
-source = "git+https://github.com/storytold/craft-libs?rev=5c496f6e962fcccd8ba91704994c4c06c2fc6a6f#5c496f6e962fcccd8ba91704994c4c06c2fc6a6f"
+source = "git+https://github.com/storytold/craft-libs?rev=0c6b195efebe7a53d84cd4220e5387f03cbdbf42#0c6b195efebe7a53d84cd4220e5387f03cbdbf42"
 dependencies = [
  "flate2",
  "thiserror 2.0.21",
@@ -3912,7 +3925,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "chrono",
  "craft-update",
@@ -3941,7 +3954,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-catalog"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "chrono",
  "crc32fast",
@@ -3962,7 +3975,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-cli"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "dhat",
  "lightcraft-codecs",
@@ -3979,7 +3992,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-codecs"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "bytemuck",
  "craft-cms",
@@ -3989,6 +4002,7 @@ dependencies = [
  "craft-image-codecs",
  "craft-jpeg",
  "craft-jxl",
+ "craft-media 0.1.0 (git+https://github.com/storytold/craft-libs?rev=057b0e3e01aed74ecc5d18eb047ddd7328b46b1d)",
  "craft-metadata 0.1.0 (git+https://github.com/storytold/craft-libs?rev=23acc704933a9a5619a5cd1cddc9bb1fb5a9b2d3)",
  "craft-psd",
  "craft-tiff 0.1.0 (git+https://github.com/storytold/craft-libs?rev=23acc704933a9a5619a5cd1cddc9bb1fb5a9b2d3)",
@@ -4007,7 +4021,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-color"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "lightcraft-geom",
  "proptest",
@@ -4016,7 +4030,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-denoise"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "faer-core",
  "lightcraft-denoise-core",
@@ -4033,7 +4047,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-denoise-core"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "dhat",
  "lightcraft-raster",
@@ -4049,7 +4063,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-develop"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "craft-mime",
  "lightcraft-color",
@@ -4062,7 +4076,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-engine"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "ab_glyph",
  "chrono",
@@ -4072,6 +4086,7 @@ dependencies = [
  "craft-mime",
  "craft-pdf",
  "craft-plist",
+ "craft-sqlite",
  "craft-tiff 0.1.0 (git+https://github.com/storytold/craft-libs?rev=23acc704933a9a5619a5cd1cddc9bb1fb5a9b2d3)",
  "craft-tiff 0.1.0 (git+https://github.com/storytold/craft-libs?rev=f589ff485707007e814671229d0f4e77bc06968a)",
  "craft-zip",
@@ -4114,7 +4129,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-faces"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "lightcraft-testkit",
  "matrixmultiply",
@@ -4129,7 +4144,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-fetch"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "craft-http-url",
  "log",
@@ -4141,22 +4156,22 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-film"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "libm",
 ]
 
 [[package]]
 name = "lightcraft-geocode"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
- "miniz_oxide 0.9.1",
+ "craft-zip",
  "serde",
 ]
 
 [[package]]
 name = "lightcraft-geom"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "proptest",
  "serde",
@@ -4164,7 +4179,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-gpu"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "bytemuck",
  "lightcraft-color",
@@ -4184,14 +4199,14 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-inpaint"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "rayon",
 ]
 
 [[package]]
 name = "lightcraft-lensdb"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "craft-xml",
  "lightcraft-develop",
@@ -4200,7 +4215,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-mcp"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "craft-mime",
  "lightcraft-codecs",
@@ -4212,7 +4227,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-merge"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "lightcraft-codecs",
  "lightcraft-color",
@@ -4228,7 +4243,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-meta"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "chrono",
  "craft-heif",
@@ -4244,7 +4259,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-pipeline"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "craft-cms",
  "craft-image-codecs",
@@ -4264,7 +4279,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-preview"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "craft-image-codecs",
  "lightcraft-raster",
@@ -4274,7 +4289,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-raster"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "libc",
  "lightcraft-color",
@@ -4286,7 +4301,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-raw"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "chrono",
  "craft-image-codecs",
@@ -4311,7 +4326,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-scenes"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "craft-image-codecs",
  "lightcraft-color",
@@ -4322,7 +4337,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-segment"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "candle-core",
  "candle-nn",
@@ -4336,7 +4351,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-slideshow"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "lightcraft-raster",
  "serde",
@@ -4345,15 +4360,15 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-sysmem"
-version = "0.21.9"
+version = "0.21.10"
 
 [[package]]
 name = "lightcraft-testkit"
-version = "0.21.9"
+version = "0.21.10"
 
 [[package]]
 name = "lightcraft-ui-egui"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "craft-sync",
  "craft-ui",
@@ -4388,7 +4403,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-web"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "crc32fast",
  "eframe",
@@ -4411,7 +4426,7 @@ dependencies = [
 
 [[package]]
 name = "lightcraft-wincolor"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "lightcraft-testkit",
  "windows-sys 0.61.2",
@@ -8282,7 +8297,7 @@ checksum = "e450f9b2ed1dff33c94c12589a87338689467b9c4f5d8a5710bd09a847d2c8a7"
 
 [[package]]
 name = "xtask"
-version = "0.21.9"
+version = "0.21.10"
 dependencies = [
  "brotli",
  "flate2",
